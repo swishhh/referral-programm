@@ -8,8 +8,24 @@
 
 namespace Swish\Referral\Api;
 
+use Swish\Referral\Exception\EmptyCode;
+use Swish\Referral\Exception\ValidateCode;
 
-class ReferralCodeInterface
+interface ReferralCodeInterface
 {
+    /** Get current customer's referral code
+     * @return string
+     * @throws EmptyCode
+     */
+    public function get();
 
+    /** Get current customer's referral code
+     * @return void
+     * @throws ValidateCode
+     */
+    public function set();
+
+    public function generate();
+
+    public function remove();
 }
