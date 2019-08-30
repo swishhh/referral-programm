@@ -46,7 +46,7 @@ class InstallData implements InstallDataInterface
             [
                 'type' => 'varchar',
                 'label' => 'Referral Code',
-                'input' => 'select',
+                'input' => 'text',
                 'required' => false,
                 'visible' => false,
                 'user_defined' => false,
