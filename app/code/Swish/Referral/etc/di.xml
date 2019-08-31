@@ -3,4 +3,6 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Swish\Referral\Api\ReferralCodeInterface"
                 type="Swish\Referral\Model\ReferralCode" />
+    <preference for="Swish\Referral\Api\RelationsInterface"
+                type="Swish\Referral\Model\RelationsManager"/>
 </config>

@@ -51,8 +51,13 @@ class InstallSchema implements InstallSchemaInterface
                     128,
                     ['nullable' => true],
                     'Referral ID'
-                )
-                ->addColumn(
+                )->addColumn(
+                    RelationsInterface::FIELD_NAME_REFERRAL_REWARD,
+                    Table::TYPE_INTEGER,
+                    null,
+                    ['nullable' => true],
+                    'Reward'
+                )->addColumn(
                     'created_at',
                     Table::TYPE_TIMESTAMP,
                     null,
