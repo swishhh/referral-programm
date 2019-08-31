@@ -20,10 +20,11 @@ interface ReferralCodeInterface
     public function get();
 
     /** Get current customer's referral code
-     * @return void
+     * @param string $code
+     * @return self
      * @throws ValidateCode
      */
-    public function set();
+    public function set($code);
 
     public function generate();
 

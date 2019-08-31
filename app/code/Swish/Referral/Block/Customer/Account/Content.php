@@ -21,4 +21,25 @@ class Content extends Template
     {
         parent::__construct($context, $data);
     }
+
+    /** Component init
+     * @param $scope
+     * @return false|string
+     */
+    public function getComponent($scope)
+    {
+        $component = [
+            "Magento_Ui/js/core/app" => [
+                "components" => [
+                    $scope => [
+                        "component" => "referral",
+                        "codeUrl" => $this->getUrl('referral/code/get'),
+                        "codeGenerate" => $this->getUrl('referral/code/generate'),
+                        "applyCode" => $this->getUrl('referral/code/apply')
+                    ]
+                ]
+            ]
+        ];
+        return json_encode($component);
+    }
 }

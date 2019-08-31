@@ -1,0 +1,71 @@
+.referral.container {
+    position: relative;
+    height: 400px;
+}
+.referral .loader {
+    position: absolute;
+    top: -20%;
+    right: 0;
+
+}
+.referral .loader img {
+    width: 50px;
+    height: 50px;
+}
+.referral .actions {
+    float: right;
+    padding-top: 1%;
+}
+.referral .actions button{
+    border: none;
+    font-weight: 400;
+    font-size: 1.3rem;
+    padding: 10px 30px 10px 30px;
+    box-shadow: none;
+}
+.referral .actions button.apply {
+    background-color: #b2ffb2;
+}
+.referral .validate {
+    position: absolute;
+    top: 6.5%;
+    right: 1%;
+    opacity: 0.9;
+}
+.referral .list {
+    padding-top: 6%;
+}
+.referral .list .container{
+    padding: 2%;
+    background-color: #f3f3f3;
+}
+.referral .list .header span{
+    font-size: 2rem;
+    padding-left: 1%;
+}
+.referral .list .header .reload{
+    position: absolute;
+    right: 3%;
+    margin-top: -25px;
+    cursor: pointer;
+}
+.referral .list .container .table{
+    padding-top: 1%;
+}
+.referral .list .container .table table tr:nth-child(odd){
+    background-color: #efefef;
+}
+.referral .list .container .table table tr:nth-child(even){
+    background-color: #f3f3f3;
+}
+.referral .list .container .table table td:nth-child(3){
+    width: 1%;
+}
+.referral .list .container .table table td:nth-child(3) .remove{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.referral .list .container .table table td:nth-child(2){
+    width: 30%;
+}
