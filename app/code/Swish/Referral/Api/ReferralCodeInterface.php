@@ -26,6 +26,9 @@ interface ReferralCodeInterface
      */
     public function set($code);
 
+    /** Random code generation
+     * @return string
+     */
     public function generate();
 
     public function remove();

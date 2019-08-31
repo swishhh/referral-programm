@@ -59,7 +59,7 @@ define([
             applyAction = $.ajax({
                 url: url,
                 dataType: 'json',
-                type: 'POST',
+                type: 'GET',
                 data: {
                     'code' : value()
                 }
@@ -81,7 +81,7 @@ define([
             generate = $.ajax({
                 url: url,
                 dataType: 'json',
-                type: 'POST'
+                type: 'GET'
             }).success(function(res){
                 value(res.code);
                 res.code ? apply(true) : null;

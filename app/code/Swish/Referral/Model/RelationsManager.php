@@ -37,10 +37,10 @@ class RelationsManager implements RelationsInterface
     /** Get customer referrals collection
      * @inheritDoc
      */
-    public function getReferrals()
+    public function getReferrals($page = 1)
     {
         $customerId = $this->getCustomerId();
-        return $customerId ? $this->getRelations($customerId) : false;
+        return $customerId ? $this->getRelations($customerId, $page) : false;
     }
 
     /**
@@ -57,12 +57,15 @@ class RelationsManager implements RelationsInterface
 
     /** Customer referrals collection
      * @param $customerId
+     * @param int $page
      * @return Collection
      */
-    public function getRelations($customerId)
+    public function getRelations($customerId, $page)
     {
         $collection = $this->_getCollection();
-        return $collection->addFieldToFilter(self::FIELD_NAME_CUSTOMER_ID, $customerId);
+        return $collection->addFieldToFilter(self::FIELD_NAME_CUSTOMER_ID, $customerId)
+            ->setCurPage($page)
+            ->setPageSize(10);
     }
 
     /** Collection new object

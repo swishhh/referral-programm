@@ -43,9 +43,10 @@ interface RelationsInterface
     const CUSTOMER_ATTRIBUTE_CODE = 'referral_code';
 
     /** Get customer referrals collection
+     * @param $page
      * @return bool|Collection
      */
-    public function getReferrals();
+    public function getReferrals($page = 1);
 
     /** Remove relations between customer and referral
      * @param $customerId
