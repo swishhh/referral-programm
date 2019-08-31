@@ -13,7 +13,8 @@
                 <label for="referral_code"><?= $block->escapeHtml(__('Your referral code')) ?></label>
                 <input name="referral_code" id="referral_code"
                        type="text"
-                       data-bind="value: getCode(), textInput: referralCode"/>
+                       disabled="true"
+                       data-bind="value: getCode(), textInput: referralCode, attr: {'disabled': !referralCode()}"/>
                 <div class="validate">
                     <img alt='success'
                          src="<?= $this->getViewFileUrl('Swish_Referral::images/checked.svg'); ?>"
@@ -48,24 +49,17 @@
                         <th><?= $block->escapeHtml(__('Reward'))?></th>
                         <th><?= $block->escapeHtml(__('Actions'))?></th>
                     </tr>
-                    <tr>
-                        <td>Customer 1</td>
-                        <td>30$</td>
-                        <td>
-                            <div class="remove">
-                                <img alt='loader' src="<?= $this->getViewFileUrl('Swish_Referral::images/remove.svg'); ?>"/>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Customer 2</td>
-                        <td>20$</td>
-                        <td>
-                            <div class="remove">
-                                <img alt='loader' src="<?= $this->getViewFileUrl('Swish_Referral::images/remove.svg'); ?>"/>
-                            </div>
-                        </td>
-                    </tr>
+                    <!-- ko foreach: { data: getReferrals(), as: 'item'} -->
+                        <tr style="display: none" data-bind="visible: true">
+                            <td data-bind="text: item.name"></td>
+                            <td data-bind="text: item.reward">20$</td>
+                            <td>
+                                <div class="remove" data-bind="click: $parent.removeRelation(item.id)">
+                                    <img alt='loader' src="<?= $this->getViewFileUrl('Swish_Referral::images/remove.svg'); ?>"/>
+                                </div>
+                            </td>
+                        </tr>
+                    <!-- /ko -->
                 </table>
             </div>
         </div>

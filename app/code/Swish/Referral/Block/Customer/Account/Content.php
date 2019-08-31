@@ -35,7 +35,8 @@ class Content extends Template
                         "component" => "referral",
                         "codeUrl" => $this->getUrl('referral/code/get'),
                         "codeGenerate" => $this->getUrl('referral/code/generate'),
-                        "applyCode" => $this->getUrl('referral/code/apply')
+                        "applyCode" => $this->getUrl('referral/code/apply'),
+                        "relationsUrl" => $this->getUrl('referral/referral/get')
                     ]
                 ]
             ]

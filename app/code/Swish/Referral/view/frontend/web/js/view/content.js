@@ -2,8 +2,9 @@ define([
     'ko',
     'jquery',
     'uiComponent',
-    'tabCode'
-], function(ko, $, Component, code){
+    'tabCode',
+    'relations'
+], function(ko, $, Component, code, relations){
     'use strict';
 
     let referralCode = ko.observable('');
@@ -16,6 +17,7 @@ define([
         initialize: function () {
             this._super();
             code().load(this.codeUrl);
+            relations().load(this.relationsUrl);
             this.referralCode = referralCode;
         },
 
@@ -23,7 +25,7 @@ define([
          * Is form loaded
          */
         visible: ko.computed(function() {
-            return code().loaded();
+            return code().loaded() && relations().isLoaded();
         }),
 
         /**
@@ -85,6 +87,21 @@ define([
             if(val.length > 20) {
                 referralCode(val.slice(0,20));
             }
-        })
+        }),
+
+        /**
+         * Get referrals array
+         */
+        getReferrals: ko.computed(function(){
+            return relations().get();
+        }),
+
+        /**
+         * Remove relation
+         * @param referral_id
+         */
+        removeRelation: function(referral_id) {
+            console.log(referral_id);
+        }
     });
 });

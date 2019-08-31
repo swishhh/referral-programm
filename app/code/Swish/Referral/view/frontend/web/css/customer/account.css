@@ -69,3 +69,21 @@
 .referral .list .container .table table td:nth-child(2){
     width: 30%;
 }
+@media only screen and (max-width: 767px) {
+    .referral .list {
+        padding-top: 16%;
+    }
+    .referral .actions {
+        float: right;
+        padding-top: 2%;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+    .referral .list {
+        padding-top: 10%;
+    }
+    .referral .actions {
+        float: right;
+        padding-top: 2%;
+    }
+}
