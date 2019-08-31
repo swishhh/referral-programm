@@ -14,7 +14,7 @@
                 <input name="referral_code" id="referral_code"
                        type="text"
                        disabled="true"
-                       data-bind="value: getCode(), textInput: referralCode, attr: {'disabled': !referralCode()}"/>
+                       data-bind="value: getCode(), textInput: referralCode, attr: {'disabled': (!referralCode() && !flag)}"/>
                 <div class="validate">
                     <img alt='success'
                          src="<?= $this->getViewFileUrl('Swish_Referral::images/checked.svg'); ?>"
@@ -52,9 +52,9 @@
                     <!-- ko foreach: { data: getReferrals(), as: 'item'} -->
                         <tr style="display: none" data-bind="visible: true">
                             <td data-bind="text: item.name"></td>
-                            <td data-bind="text: item.reward">20$</td>
+                            <td data-bind="text: item.reward"></td>
                             <td>
-                                <div class="remove" data-bind="click: $parent.removeRelation(item.id)">
+                                <div class="remove" data-bind="click: $parent.removeRelation">
                                     <img alt='loader' src="<?= $this->getViewFileUrl('Swish_Referral::images/remove.svg'); ?>"/>
                                 </div>
                             </td>

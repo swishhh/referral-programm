@@ -12,7 +12,7 @@ use Swish\Referral\Api\ReferralCodeInterface;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
-use Swish\Referral\Exception\EmptyCode;
+use Swish\Referral\Exception\ValidateCode;
 
 class Generate extends Action
 {
@@ -40,9 +40,17 @@ class Generate extends Action
     public function execute()
     {
         $response = $this->_jsonFactory->create();
-        $result = [
-            'code' => $this->_referralCode->generate()
-        ];
+        $code = $this->_referralCode->generate();
+        try {
+            $this->_referralCode->set($code);
+            $result = [
+                'code' => $code
+            ];
+        } catch (ValidateCode $e) {
+            $result = [
+                'code' => false
+            ];
+        }
         return $response->setData($result);
     }
 }

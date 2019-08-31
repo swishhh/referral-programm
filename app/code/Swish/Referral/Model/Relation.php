@@ -72,7 +72,6 @@ class Relation extends AbstractModel implements IdentityInterface
     public function getDefaultValues()
     {
         $values = [];
-
         return $values;
     }
 

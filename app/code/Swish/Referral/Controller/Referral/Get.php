@@ -51,7 +51,7 @@ class Get extends Action
      */
     public function getRelations()
     {
-        $collection = $this->_relationsManager->getReferrals();
+        $collection = $this->_relationsManager->getReferrals((int)$this->_request->getParam('p'));
         if($collection && $collection->getSize()) {
             $result = [];
             /** @var  $item Relation */

@@ -8,6 +8,7 @@ define([
     'use strict';
 
     let referralCode = ko.observable('');
+    let flag = ko.observable('');
 
     return Component.extend({
 
@@ -19,6 +20,7 @@ define([
             code().load(this.codeUrl);
             relations().load(this.relationsUrl);
             this.referralCode = referralCode;
+            this.flag = flag;
         },
 
         /**
@@ -34,6 +36,7 @@ define([
         getCode: ko.computed(function() {
             let get = code().get();
             referralCode(get);
+            get ? flag(true) : null;
             return get;
         }),
 
@@ -98,10 +101,10 @@ define([
 
         /**
          * Remove relation
-         * @param referral_id
+         * @param value
          */
-        removeRelation: function(referral_id) {
-            console.log(referral_id);
+        removeRelation: function(value) {
+            console.log(value.id);
         }
     });
 });
