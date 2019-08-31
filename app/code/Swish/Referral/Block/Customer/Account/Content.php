@@ -8,8 +8,17 @@
 
 namespace Swish\Referral\Block\Customer\Account;
 
+use Magento\Framework\View\Element\Template;
 
-class Content
+class Content extends Template
 {
+    protected $_template = 'Swish_Referral::customer/account/content.phtml';
 
+    public function __construct(
+        Template\Context $context,
+        array $data = []
+    )
+    {
+        parent::__construct($context, $data);
+    }
 }
